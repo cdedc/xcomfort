@@ -1,7 +1,7 @@
 # xcomfort
 Moeller EATON xComfort USB Gateway interface library
 
-This work is heavily based on mifis xcomfort libraries. He did some work for dimming. 
+This work is heavily based on mifis xcomfort libraries (https://github.com/mifi/libxcomfort). He did some work for dimming. 
 
 I took his base and focused on basic functionality. I'm using the new USB dongle-style gateway (Eaton / Möller xComfort USB Gateway (communications interface) CKOZ-00/1) which seems to be a bit more sensitive to some settings (especially buffer size). 
 
