@@ -10,13 +10,19 @@ Thus Mifis code in the end didn't work for me, but provided a sound basis for ho
 The programmatic interface to the USBGW was reworked completely. The xcomfort.c "library" now contains the code to 
 
 A) open and close the USB device
+
 B) send and receive raw USB gateway radio packets
+
 C) the data structures for all 4 packet types supported by the USBGW
+
 D) sample code to retrieve some basic info from the USBGW
+
 E) sample code to "teach" a sensor to control a given datapoint (actor)
+
 F) sample code to listen to the USBGW and other sensors and actors and log the packet traffic
 
 The code right nowis more or less work in progress and can serve as a starting point for other projects. It is in no form complete.
 
 rgds,
+
 cdedc
