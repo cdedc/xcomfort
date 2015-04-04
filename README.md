@@ -9,7 +9,7 @@ Thus Mifis code in the end didn't work for me, but provided a sound basis for ho
 
 The programmatic interface to the USBGW was reworked completely. The xcomfort.c "library" now contains 
 
-* A) the code toopen and close the USB device
+1 the code toopen and close the USB device
 
 B) the code tosend and receive raw USB gateway radio packets (lxc_out and lxc_in)
 
