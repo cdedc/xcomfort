@@ -7,9 +7,9 @@ I took his code as my base and focused on some very core functionalities. I'm us
 
 Thus Mifis code in the end didn't work for me, but provided a sound basis for how to open the usb device. This code is included nearly "as is" and I just added debugging facilities to it. 
 
-The programmatic interface to the USBGW was reworked completely. The xcomfort.c "library" now contains 
+## The programmatic interface to the USBGW was reworked completely. The xcomfort.c "library" now contains 
 
-1 the code toopen and close the USB device
+A) the code toopen and close the USB device
 
 B) the code tosend and receive raw USB gateway radio packets (lxc_out and lxc_in)
 
