@@ -1,5 +1,5 @@
 # xcomfort
-Moeller EATON xComfort USB Gateway (USBGW) interface library
+## Moeller EATON xComfort USB Gateway (USBGW) interface library
 
 This work is heavily based on mifis xcomfort libraries (https://github.com/mifi/libxcomfort). He did extensive work for dimming. 
 
