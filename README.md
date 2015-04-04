@@ -21,7 +21,7 @@ E) sample code to "teach" a sensor to control a given datapoint (actor)
 
 F) sample code to listen to the USBGW and other sensors and actors and log the packet traffic
 
-The code right nowis more or less work in progress and can serve as a starting point for other projects. It is in no form complete.
+The code right now is more or less work in progress and can serve as a starting point for other projects. It is in no form complete nor will it be completed in the future. Use it as it is.
 
 rgds,
 
