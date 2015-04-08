@@ -1,6 +1,6 @@
 // #define LXC_DEBUG		// debug (verbose) tracing to stdout
 // #define LXC_INFO		// info (less verbose) tracing to stdout
-// or uncomment both for no output, errors will always go to stderr
+// or comment both for no output
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -122,15 +122,17 @@ void 	lxc_get_stats(struct libusb_device_handle *dev) {
 
 	// enumerate several statistics from the USB interface itself
 	
+	// up to now I have NO idea why you have to send a cfg-request several times before you get an answer
+	// but from my current testing I found that after max 5 tries you will get an answer
 	for (try = 1; try < 5; try++) {
 		init_packet(&req);
 		req.cfg.len = 0x04;
 		req.cfg.type = LXC_PT_CFG;
-		req.cfg.cf_type = LXC_STT_SERIAL;
+		req.cfg.cf_type = LXC_CT_SERIAL;
 		req.cfg.cf_mode = 0x00;
 		lxc_out(dev, &req);
 		init_packet(&rsp);
-		if (lxc_in(dev, &rsp, 100) == 0) {
+		if (lxc_in(dev, &rsp, 100) == 0) {		// 100ms max waiting time
 			// got 32-bit Serial No.
 			printf("Serial number data:\n  len %d, type = 0x%02X, st_type = 0x%02X, st_status = 0x%02X, serialno = 0x%08X / %08d\n", 
 			 	rsp.sta.len, rsp.sta.type, rsp.sta.st_type, rsp.sta.st_status, rsp.sta.st_data, rsp.sta.st_data)
@@ -145,7 +147,7 @@ void 	lxc_get_stats(struct libusb_device_handle *dev) {
 		init_packet(&req);
 		req.cfg.len = 0x04;
 		req.cfg.type = LXC_PT_CFG;
-		req.cfg.cf_type = LXC_STT_RELEASE;
+		req.cfg.cf_type = LXC_CT_RELEASE;
 		req.cfg.cf_mode = 0x00; // ask for release numbers
 		lxc_out(dev, &req);
 		init_packet(&rsp);
@@ -164,7 +166,7 @@ void 	lxc_get_stats(struct libusb_device_handle *dev) {
 		init_packet(&req);
 		req.cfg.len = 0x04;
 		req.cfg.type = LXC_PT_CFG;
-		req.cfg.cf_type = LXC_STT_RELEASE;
+		req.cfg.cf_type = LXC_CT_RELEASE;
 		req.cfg.cf_mode = 0x10; // ask for revision numbers
 		lxc_out(dev, &req);
 		init_packet(&rsp);
@@ -184,7 +186,7 @@ void 	lxc_get_stats(struct libusb_device_handle *dev) {
 		init_packet(&req);
 		req.cfg.len = 0x04;
 		req.cfg.type = LXC_PT_CFG;
-		req.cfg.cf_type = LXC_STT_TIMEACCOUNT;
+		req.cfg.cf_type = LXC_CT_TIMEACCOUNT;
 		req.cfg.cf_mode = 0x00; // ask for status
 		lxc_out(dev, &req);
 		init_packet(&rsp);
