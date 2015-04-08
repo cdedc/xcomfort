@@ -25,6 +25,24 @@ F) sample code to listen to the USBGW and other sensors and actors and log the p
 
 The code right now is more or less work in progress and can serve as a starting point for other projects. It is in no form complete nor will it be completed to any given definition in the future. Use it as it is.
 
+## NOTE ON INTEGRATING THE USB GATEWAY:
+
+	To integrate the USBGW into your environment you have to discover it using the MRF software.
+	The USBGW can remember up to 100 datapoints (00-99). You have to configure it like you
+	would configure a pushbutton/sensor or an actor in the MRF SW. Otherwise it will NOT
+	receive any data. I have tried it. You cant use it as a "RF packet sniffer" :(
+
+	This means that you have to load the password into the USBGW, then load the datapoints
+	and only then then you will receive LXC_PT_RX packets from these devices. Unfortunately
+	you cant just tell the USBGW the password of your MRF system and then listen to whats
+	going on in your network. You have to program the up to 100 connections into the USBGW
+	(and I have no idea how I can do that with the limited graphical options of the MRF SW).
+
+	My current system has 30 sensors and 60 actors. This will be a whole mess if I do the 
+	programming by drawing "connection lines" in the MRF SW. If anyone has a better idea please 
+	feel free to tell me.
+
+
 rgds,
 
 cdedc
